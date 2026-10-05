@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<script>
+  if (sessionStorage.getItem("loggedIn") !== "true") window.location.replace("login.html");
+</script>
 <title>AI-Native Proficiency Assessment — Individual Scorecard</title>
 <style>
   :root {

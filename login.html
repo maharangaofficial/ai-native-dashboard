@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login — AI-Native Proficiency Assessment</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #f4f5f7;
+    color: #10151c;
+  }
+  .card {
+    width: 100%;
+    max-width: 340px;
+    background: #ffffff;
+    border: 1px solid rgba(16,21,28,0.09);
+    border-radius: 14px;
+    padding: 28px 24px;
+    box-shadow: 0 1px 2px rgba(16,21,28,0.04), 0 1px 8px rgba(16,21,28,0.05);
+  }
+  h1 { font-size: 18px; margin: 0 0 18px; color: #1c3f94; }
+  label { display: block; font-size: 13px; margin-bottom: 6px; color: #4a5568; }
+  input {
+    width: 100%;
+    padding: 9px 10px;
+    margin-bottom: 14px;
+    border: 1px solid #c3c2b7;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 8px;
+    background: #1c3f94;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button:hover { background: #122a66; }
+  #error { color: #c0392b; font-size: 13px; margin-top: 12px; min-height: 18px; }
+</style>
+</head>
+<body>
+  <form class="card" id="login-form">
+    <h1>Sign in</h1>
+    <label for="username">Username</label>
+    <input id="username" type="text" autocomplete="username" required autofocus />
+    <label for="password">Password</label>
+    <input id="password" type="password" autocomplete="current-password" required />
+    <button type="submit">Login</button>
+    <div id="error"></div>
+  </form>
+
+<script>
+  // Hard-coded credentials (simple demo login, not real security)
+  var USERNAME = "admin";
+  var PASSWORD = "RamCem123";
+
+  document.getElementById("login-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+
+    if (user === USERNAME && pass === PASSWORD) {
+      sessionStorage.setItem("loggedIn", "true");
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("error").textContent = "Invalid username or password.";
+    }
+  });
+</script>
+</body>
+</html>
